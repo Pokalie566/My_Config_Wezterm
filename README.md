@@ -4,26 +4,42 @@
 
 ### Features
 
-- **Background Image Selector**
+- [**Background Image Selector**](https://github.com/KevinSilvester/wezterm-config/blob/master/utils/backdrops.lua)
+
   - Cycle images
   - Fuzzy search for image
   - Toggle background image
 
   > See: [key bindings](#background-images) for usage
 
-- **GPU Adapter Selector**
-  > :bulb: Only works if the `front_end` option is set to `WebGpu`.
+- [**GPU Adapter Selector**](https://github.com/KevinSilvester/wezterm-config/blob/master/utils/gpu_adapter.lua)
+
+  > :bulb: Only works if the [`front_end`](https://github.com/KevinSilvester/wezterm-config/blob/master/config/appearance.lua#L8) option is set to `WebGpu`.
 
   A small utility to select the best GPU + Adapter (graphics API) combo for your machine.
 
   GPU + Adapter combo is selected based on the following criteria:
 
-  1. Best GPU available
-     `Discrete` > `Integrated` > `Other` (for `wgpu`'s OpenGl implementation on Discrete GPU) > `Cpu`
-  2. Best graphics API available (based on the following criteria)
-     - Windows: `Dx12` > `Vulkan` > `OpenGl`
-     - Linux: `Vulkan` > `OpenGl`
-     - Mac: `Metal`
+  1.  <details>
+      <summary>Best GPU available</summary>
+
+      `Discrete` > `Integrated` > `Other` (for `wgpu`'s OpenGl implementation on Discrete GPU) > `Cpu`
+      </details>
+
+  2.  <details>
+      <summary>Best graphics API available (based off my very scientific scroll a big log file in Neovim test 😁)</summary>
+
+      > :bulb:<br>
+      > The available graphics API choices change based on your OS.<br>
+      > These options correspond to the APIs the `wgpu` crate (which powers WezTerm's gui in `WebGpu` mode)<br>
+      > currently has support implemented for.<br>
+      > See: <https://github.com/gfx-rs/wgpu#supported-platforms> for more info
+
+      - Windows: `Dx12` > `Vulkan` > `OpenGl`
+      - Linux: `Vulkan` > `OpenGl`
+      - Mac: `Metal`
+
+      </details>
 
 ---
 
@@ -31,76 +47,150 @@
 
 - ##### Requirements:
 
-  - **WezTerm**
-    Minimum Version: `20240127-113634-bbcac864`
+  - <details>
+      <summary><b>WezTerm</b></summary>
+
+    Minimum Version: `20240127-113634-bbcac864`<br>
     Recommended Version: [`Nightly`](https://github.com/wez/wezterm/releases/nightly)
 
     [Official Installation Page](https://wezfurlong.org/wezterm/installation.html)
 
     **Windows**
-    - Install with Scoop (non-portable)
-      ```sh
-      scoop bucket add extras
-      scoop install wezterm
-      ```
-    - Install with Scoop (portable)
-      ```sh
-      scoop bucket add k https://github.com/KevinSilvester/scoop-bucket
-      scoop install k/wezterm
-      ```
-    - Install with winget
-      ```sh
-      winget install wez.wezterm
-      ```
-    - Install with choco
-      ```sh
-      choco install wezterm -y
-      ```
+
+    - <details>
+      <summary>Install Stable</summary>
+
+      - Install with Scoop (non-portable)
+
+        ```sh
+        scoop bucket add extras
+        scoop install wezterm
+        ```
+
+      - Install with Scoop (portable)
+
+        ```sh
+        scoop bucket add k https://github.com/KevinSilvester/scoop-bucket
+        scoop install k/wezterm
+        ```
+
+      - Install with winget
+
+        ```sh
+        winget install wez.wezterm
+        ```
+
+      - Install with choco
+
+        ```sh
+        choco install wezterm -y
+        ```
+      </details>
+
+    - <details>
+      <summary>Install Nightly</summary>
+
+      - Install with Scoop (non-portable)
+
+        ```sh
+        scoop bucket add versions
+        scoop install wezterm-nightly
+        ```
+
+      - Install with Scoop (portable)
+
+        ```sh
+        scoop bucket add k https://github.com/KevinSilvester/scoop-bucket
+        scoop install k/wezterm-nightly
+        ```
+      </details>
+
+    > :bulb:<br>
+    > Toast notifications don't work in non-portable installations.<br>
+    > See issue <https://github.com/wez/wezterm/issues/5166> for more details
+  
+    ---
 
     **MacOS**
-    - Install with Homebrew
-      ```sh
-      brew install --cask wezterm
-      ```
-    - Install with MacPort
-      ```sh
-      sudo port selfupdate
-      sudo port install wezterm
-      ```
+
+    - <details>
+      <summary>Install Stable</summary>
+
+      - Install with Homebrew
+
+        ```sh
+        brew install --cask wezterm
+        ```
+
+      - Install with MacPort
+
+        ```sh
+        sudo port selfupdate
+        sudo port install wezterm
+        ```
+      </details>
+
+    - <details>
+      <summary>Install Nighlty</summary>
+
+      - Install with Homebrew
+
+        ```sh
+        brew install --cask wezterm@nightly
+        ```
+
+      - Upgrade with Homebrew
+
+        ```sh
+        brew install --cask wezterm@nightly --no-quarantine --greedy-latest
+        ```
+      </details>
+
+    ---
 
     **Linux**
-    Refer to the [Linux installation page](https://wezfurlong.org/wezterm/install/linux.html).
 
-  - **JetBrainsMono Nerd Font**
-    Install with Homebrew (MacOS)
+    Refer to the Linux installation page.<br>
+    <https://wezfurlong.org/wezterm/install/linux.html>
+
+    </details>
+
+  - <details>
+    <summary>JetBrainsMono Nerd Font</summary>
+
+    Install with Homebrew (Macos)
+
     ```sh
     brew tap homebrew/cask-fonts
     brew install font-jetbrains-mono-nerd-font
     ```
 
     Install with Scoop (Windows)
+
     ```sh
     scoop bucket add nerd-fonts
     scoop install JetBrainsMono-NF
     ```
 
     > More Info:
-    > - [Nerd Fonts](https://www.nerdfonts.com/#home)
-    > - [GitHub - Nerd Fonts](https://github.com/ryanoasis/nerd-fonts?#font-installation)
+    >
+    > - <https://www.nerdfonts.com/#home>
+    > - <https://github.com/ryanoasis/nerd-fonts?#font-installation>
+    </details/>
 
 &nbsp;
 
 - ##### Steps:
 
-  1. ```sh
-     # On Windows and Unix systems
-     git clone https://github.com/Pokalie566/My_Config_Wezterm.git ~/.config
-     ```
-  2. ```sh
-     # Or run ./run for auto execussion
-     ./run
-     ```
-  3. And Done!!! 🎉🎉
+  1.  ```sh
+      # On Windows and Unix systems
+      git clone https://github.com/KevinSilvester/wezterm-config.git ~/.config
+      ```
+  2.  ```sh
+      # Ou lancer ./run pour le faire automatiquement
+      ./run.sh
+      ```
+  3.  And Done!!! 🎉🎉
 
 &nbsp;
 
@@ -113,16 +203,17 @@
 
 ### All Key Bindings
 
-Most of the key bindings revolve around a <kbd>SUPER</kbd> and <kbd>SUPER_REV</kbd>(super reversed) keys.
+Most of the key bindings revolve around a <kbd>SUPER</kbd> and <kbd>SUPER_REV</kbd>(super reversed) keys.<br>
 
-- On MacOS:
+- On MacOs:
   - <kbd>SUPER</kbd> ⇨ <kbd>Super</kbd>
   - <kbd>SUPER_REV</kbd> ⇨ <kbd>Super</kbd>+<kbd>Ctrl</kbd>
 - On Windows and Linux
   - <kbd>SUPER</kbd> ⇨ <kbd>Alt</kbd>
   - <kbd>SUPER_REV</kbd> ⇨ <kbd>Alt</kbd>+<kbd>Ctrl</kbd>
 
-> To avoid confusion when switching between different OS and to avoid conflicting with OS's built-in keyboard shortcuts.
+> To avoid confusion when switching between different OS and to avoid conflicting<br>
+> with OS's built-in keyboard shortcuts.
 
 - On all platforms: <kbd>LEADER</kbd> ⇨ <kbd>SUPER_REV</kbd>+<kbd>Space</kbd>
 
