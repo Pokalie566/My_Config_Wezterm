@@ -1,19 +1,5 @@
 <h2 align="center">My WezTerm Config</h2>
 
-<p align="center">
-  <a href="https://github.com/KevinSilvester/wezterm-config/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/KevinSilvester/wezterm-config?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41">
-  </a>
-  <a href="https://github.com/KevinSilvester/wezterm-config/issues">
-    <img alt="Issues" src="https://img.shields.io/github/issues/KevinSilvester/wezterm-config?style=for-the-badge&logo=gitbook&color=B5E8E0&logoColor=D9E0EE&labelColor=302D41">
-  </a>
-  <a href="https://github.com/KevinSilvester/wezterm-config/actions/workflows/lint.yml">
-    <img alt="Build" src="https://img.shields.io/github/actions/workflow/status/KevinSilvester/wezterm-config/lint.yml?&style=for-the-badge&logo=githubactions&label=CI&color=A6E3A1&logoColor=D9E0EE&labelColor=302D41">
-  </a>
-</p>
-
-![screenshot](./.github/screenshots/wezterm.gif)
-
 ---
 
 ### Features
@@ -196,18 +182,22 @@
 
 - ##### Steps:
 
-  1.  ```sh
-      # On Windows and Unix systems
-      git clone https://github.com/KevinSilvester/wezterm-config.git ~/.config/wezterm
-      ```
-  2.  And Done!!! 🎉🎉
+  1. ```sh
+     # On Windows and Unix systems
+     git clone https://github.com/Pokalie566/My_Config_Wezterm.git ~/.config
+     ```
+  2. ```sh
+     # Or run ./run for auto execussion
+     ./run
+     ```
+  3. And Done!!! 🎉🎉
 
 &nbsp;
 
 - ##### Things You Might Want to Change:
 
-  - [./config/domains.lua](./config/domains.lua) for custom SSH/WSL domains
-  - [./config/launch.lua](./config/launch.lua) for preferred shells and its paths
+  - [./wezterm/config/domains.lua](./wezterm/config/domains.lua) for custom SSH/WSL domains
+  - [./wezterm/config/launch.lua](./wezterm/config/launch.lua) for preferred shells and its paths
 
 ---
 
