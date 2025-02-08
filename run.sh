@@ -20,3 +20,4 @@ fi
 cp -rv "$dossier_source" "$dossier_destination"
 
 echo "Le dossier 'wezterm' a été copié avec succès dans $dossier_destination/"
+
