@@ -4,7 +4,7 @@
 
 ### Features
 
-- [**Background Image Selector**](https://github.com/KevinSilvester/wezterm-config/blob/master/utils/backdrops.lua)
+- [**Background Image Selector**](https://github.com/Pokalie566/wezterm-config/blob/master/utils/backdrops.lua)
 
   - Cycle images
   - Fuzzy search for image
@@ -12,9 +12,9 @@
 
   > See: [key bindings](#background-images) for usage
 
-- [**GPU Adapter Selector**](https://github.com/KevinSilvester/wezterm-config/blob/master/utils/gpu_adapter.lua)
+- [**GPU Adapter Selector**](https://github.com/Pokalie566/wezterm-config/blob/master/utils/gpu_adapter.lua)
 
-  > :bulb: Only works if the [`front_end`](https://github.com/KevinSilvester/wezterm-config/blob/master/config/appearance.lua#L8) option is set to `WebGpu`.
+  > :bulb: Only works if the [`front_end`](https://github.com/Pokalie566/wezterm-config/blob/master/config/appearance.lua#L8) option is set to `WebGpu`.
 
   A small utility to select the best GPU + Adapter (graphics API) combo for your machine.
 
@@ -60,20 +60,17 @@
     - <details>
       <summary>Install Stable</summary>
 
+    - Install with flatpak
+
+        ```sh
+        flatpak install flathub org.wezfurlong.wezterm
+        ```
       - Install with Scoop (non-portable)
 
         ```sh
         scoop bucket add extras
         scoop install wezterm
         ```
-
-      - Install with Scoop (portable)
-
-        ```sh
-        scoop bucket add k https://github.com/KevinSilvester/scoop-bucket
-        scoop install k/wezterm
-        ```
-
       - Install with winget
 
         ```sh
@@ -95,13 +92,6 @@
         ```sh
         scoop bucket add versions
         scoop install wezterm-nightly
-        ```
-
-      - Install with Scoop (portable)
-
-        ```sh
-        scoop bucket add k https://github.com/KevinSilvester/scoop-bucket
-        scoop install k/wezterm-nightly
         ```
       </details>
 
@@ -184,7 +174,7 @@
 
   1.  ```sh
       # On Windows and Unix systems
-      git clone https://github.com/KevinSilvester/wezterm-config.git ~/.config
+      git clone https://github.com/Pokalie566/wezterm-config.git ~/.config
       ```
   2.  ```sh
       # Ou lancer ./run pour le faire automatiquement
